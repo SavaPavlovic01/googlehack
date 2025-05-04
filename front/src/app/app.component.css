@@ -1,0 +1,74 @@
+/* Full height for the whole page */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure the container takes the full screen height */
+.example-container {
+  width: 100%;
+  height: 100%;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row; /* Align sidenav and content side by side */
+}
+
+/* Sidenav fixed width (20%) and full height */
+.example-sidenav {
+  width: 20%;
+  background-color: black;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 0%;
+  outline: none;
+}
+
+/* Content container, taking up remaining space */
+.example-sidenav-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 1; /* Takes the remaining space */
+  padding: 20px;
+}
+
+/* Report text color */
+.report {
+  color: red;
+}
+
+/* Mat toolbar should stay at the top */
+mat-toolbar {
+  width: 100%; /* Ensure the toolbar is on top of other elements */
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-drawer-container {
+  display: flex;
+  flex-direction: row; /* Ensure sidenav and content are aligned side by side */
+  height: 100%;
+  padding-top: 20px;
+}
+
+/* Flying animation */
+@keyframes flyUp {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-50px) scale(1.2); /* Fly upwards by 50px */
+  }
+  100% {
+    transform: translateY(0) scale(1); /* Return to original position */
+    opacity: 0; /* Fade out after reaching peak */
+  }
+}

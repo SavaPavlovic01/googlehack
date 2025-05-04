@@ -1,0 +1,89 @@
+<div class="grid-container">
+<div class="container my-5">
+  <div class="row g-3 mb-3">
+    <div *ngIf = "isloading" class="spinner"></div>
+    <!-- Card 1: Select Submission Type -->
+    
+      <div class="card w-100">
+        <div class="card-body">
+          <h5 class="card-title">Izaberite tip materijala</h5>
+          <select class="form-select" [(ngModel)]="selectedInput" (change)="selectChange()">
+            <option [ngValue]="-1" disabled selected>Izbor tipa</option>
+            <option *ngFor="let type of ['0','1','2','3','4']" [ngValue]="type">{{ castNumberToDesc(type) }}</option>
+          </select>
+        </div>
+      </div>
+  </div>
+
+    <!-- Card 2: Dynamic Form -->
+    <div class="row">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Forma za: {{ castNumberToDesc(selectedInput) || '...' }}</h5>
+
+
+  <div *ngIf="!isloading && result" >
+              <div class="mb-3">
+                <h4>{{result
+                }}
+                </h4>
+              </div>
+            </div>
+          <form *ngIf="selectedInput" (ngSubmit)="onSubmit()" #formRef="ngForm">
+
+            <!-- Type A Form -->
+            <div *ngIf="selectedInput == '0' && !isloading && !result " >
+              <div class="mb-3">
+                <label class="form-label">Unesite tekst koji želite da analizirate.
+                </label>
+                <textarea class="form-control" name="textInputString" [(ngModel)]="inputString"></textarea>
+              </div>
+            </div>
+
+            <!-- Type B Form -->
+            <div *ngIf="selectedInput == '1'&& !isloading && !result " >
+              <div class="mb-3">
+                <label class="form-label">Unesite youtube link</label>
+                <input type="url" class="form-control" name="youtubeLink" [(ngModel)]="ytString" required>
+              </div>
+            </div>
+
+            <div *ngIf="selectedInput == '2'&& !isloading && !result " >
+              <div class="mb-3">
+                <label class="form-label">Unesite twitter link</label>
+                <input type="url" class="form-control" name="twitterLink" [(ngModel)]="twitterString" required>
+              </div>
+            </div>
+
+    
+           
+            <div *ngIf="selectedInput == '3'&& !isloading && !result " >
+              <div class="mb-3">
+                <label class="form-label">Postavite video fajl u .mp4 formatu</label>
+                <input type="file" id="videoInput" class="form-control"  (change)="onVideoPicked($event)"  name="videoUpload" [(ngModel)]="videoFile">
+              </div>
+            </div>
+
+            <div *ngIf="selectedInput == '4'&& !isloading && !result " >
+              <div class="mb-3">
+                <label class="form-label">Postavite sliku</label>
+                <input type="file" id="imageInput" class="form-control"         (change)="onImagePicked($event)" name="imageUpload" [(ngModel)]="imageFile">
+              </div>
+            </div>
+
+            <!-- Type E Form -->
+          
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Submit Button -->
+  <div class="text-center mt-4">
+    <button class="btn btn-primary" [disabled]="!selectedInput || isloading" (click)="submitForm()">Submit</button>
+  </div>
+</div>
+</div>

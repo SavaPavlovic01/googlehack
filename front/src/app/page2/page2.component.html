@@ -1,0 +1,24 @@
+<div class="grid-container">
+    <table class="table table-hover table-striped w-full rounded">
+      <thead class="thead-primary">
+        <tr>
+          <th scope="col">Nalog</th>
+          <th scope="col">Prijave</th>
+          <th scope="col">Link ka profilu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of dataSource">
+          <td>
+            &#64;
+            {{ row.username }}
+          </td>
+          <td>{{row.counter}}</td>
+          <td>
+            <a href="">x.com/{{ row.username }}</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,49 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="assets/logo.png" style="height: 40px" />
+  <button
+    style="
+      background: none;
+      border: none;
+      padding: 0;
+      font: 300;
+      color: inherit;
+      cursor: pointer;
+    "
+    (click)="jumpToHome()"
+  >
+    <span class="font: 200">HERO</span>
+  </button>
+  <span class="example-spacer"></span>
+  <mat-icon>favorite</mat-icon>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-list>
+      <a mat-list-item routerLink="/page2">
+        <span>Twitter/X</span>
+      </a>
+      <a mat-list-item routerLink="/page1">
+        <span>Portali</span>
+      </a>
+      <a mat-list-item routerLink="/report">
+        <span class="report">Prijavi</span>
+      </a>
+    </mat-list>
+  </mat-drawer>
+  <div class="example-sidenav-content" (click)="drawer.close()">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
+
+<footer>
+  <p>&copy; 2025 Platforma za Detekciju Govora Mržnje</p>
+</footer>

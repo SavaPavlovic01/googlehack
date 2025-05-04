@@ -1,0 +1,50 @@
+.form-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+/* Positioning the spinner above the cards */
+.spinner {
+  border: 16px solid #f3f3f3; /* Light gray background */
+  border-top: 16px solid #3498db; /* Blue color for the spinner */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  position: fixed; /* Fixed position so it stays centered on the screen */
+  top: 50%;
+  left: 50%;
+  margin-left: -25px; /* Offset to center horizontally */
+  margin-top: -25px;  /* Offset to center vertically */
+  z-index: 9999; /* Ensure it appears on top of other elements */
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Single column layout */
+  gap: 20px;
+  padding: 20px;
+  width: 1200px;
+  height: 100%; /* Ensure it fills available height */
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}

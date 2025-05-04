@@ -1,3 +1,16 @@
 requests
 beautifulsoup4
 google-cloud-vision
+fastapi
+uvicorn
+yt-dlp
+google-cloud-speech
+google-cloud-storage
+pydub
+python-multipart
+tensorflow
+transformers
+tf-keras
+asyncpg
+databases
+sqlalchemy

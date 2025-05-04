@@ -1,0 +1,14 @@
+/* Example custom styling for the navbar */
+.navbar {
+  background-color: #4caf50; /* Green background */
+}
+
+.navbar .navbar-nav .nav-link {
+  color: white !important; /* White text for links */
+}
+
+.navbar .navbar-brand {
+  color: white !important;
+}
+
+
